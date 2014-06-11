@@ -37,12 +37,12 @@ var TurretIO = function TurretIO(key, secret) {
 	return new this.AccountManager(this);
   }
 
-  this.newSegmentManager = function() {
-    return new this.SegmentManager(this);
+  this.newTargetManager = function() {
+    return new this.TargetManager(this);
   }
 
-  this.newSegmentEmailManager = function() {
-    return new this.SegmentEmailManager(this);
+  this.newTargetEmailManager = function() {
+    return new this.TargetEmailManager(this);
   }
 
   this.newUserManager = function() {
@@ -169,9 +169,9 @@ var TurretIO = function TurretIO(key, secret) {
     }
   }
 
-  this.SegmentManager = function(TurretIO) {
+  this.TargetManager = function(TurretIO) {
 
-    this.uri = '/latest/segment';
+    this.uri = '/latest/target';
 
     this.get = function(name, callback) {
       TurretIO.GET(this.uri+'/'+name, callback);
@@ -187,31 +187,31 @@ var TurretIO = function TurretIO(key, secret) {
 
   }
 
-  this.SegmentEmailManager = function(TurretIO) {
+  this.TargetEmailManager = function(TurretIO) {
 
-    this.uri = '/latest/segment';
+    this.uri = '/latest/target';
 
-    this.get = function(segment_name, email_id, callback) {
-      TurretIO.GET(this.uri+'/'+segment_name+'/email/'+email_id, callback);
+    this.get = function(target_name, email_id, callback) {
+      TurretIO.GET(this.uri+'/'+target_name+'/email/'+email_id, callback);
     }
 
-    this.create = function(segment_name, subject, html_body, plain_body, callback) {
-      TurretIO.POST(this.uri+'/'+segment_name+'/email', {'subject':subject,
+    this.create = function(target_name, subject, html_body, plain_body, callback) {
+      TurretIO.POST(this.uri+'/'+target_name+'/email', {'subject':subject,
             'html':html_body, 'plain':plain_body}, callback);
     }
 
-    this.update = function(segment_name, email_id, subject, html_body, plain_body, callback) {
-      TurretIO.POST(this.uri+'/'+segment_name+'/email/'+email_id, {'subject':subject,
+    this.update = function(target_name, email_id, subject, html_body, plain_body, callback) {
+      TurretIO.POST(this.uri+'/'+target_name+'/email/'+email_id, {'subject':subject,
             'html':html_body, 'plain':plain_body}, callback);
     }
 
-    this.sendTest = function(segment_name, email_id, email_from, recipient, callback) {
-      TurretIO.POST(this.uri+'/'+segment_name+'/email/'+email_id+'/sendTestEmail', {'email_from':email_from,
+    this.sendTest = function(target_name, email_id, email_from, recipient, callback) {
+      TurretIO.POST(this.uri+'/'+target_name+'/email/'+email_id+'/sendTestEmail', {'email_from':email_from,
             'recipient':recipient}, callback);
     }
 
-    this.send = function(segment_name, email_id, email_from, callback) {
-      TurretIO.POST(this.uri+'/'+segment_name+'/email/'+email_id+'/sendEmail', {'email_from':email_from},
+    this.send = function(target_name, email_id, email_from, callback) {
+      TurretIO.POST(this.uri+'/'+target_name+'/email/'+email_id+'/sendEmail', {'email_from':email_from},
             callback);
     }
   }
