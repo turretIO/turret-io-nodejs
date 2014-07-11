@@ -1,0 +1,11 @@
+{
+    "name": "TurretIO",
+    "version": "0.1.0",
+    "description": "Turret.IO client library for Node.js",
+    "keywords": ["turretio", "turret.io", "email marketing"],
+    "homepage": "http://turret.io",
+    "bugs": {
+        "url": "http://github.com/turretIO/turret-io-nodejs/issues",
+        "email": "team@turret.io"
+    }
+}
