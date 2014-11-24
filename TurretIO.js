@@ -28,9 +28,9 @@ var TurretIO = function TurretIO(key, secret) {
 
   this.key = key;
   this.secret = secret;
-  this.domain = 'api.turret.io'
+  this.domain = 'dev-api.turret.io'
 
-  this.version = '0.1a';
+  this.version = '0.2';
 
 
   this.newAccountManager = function() {
@@ -177,12 +177,12 @@ var TurretIO = function TurretIO(key, secret) {
       TurretIO.GET(this.uri+'/'+name, callback);
     }
 
-    this.create = function(name, attribute_obj, callback) {
-      TurretIO.POST(this.uri+'/'+name, {attributes: attribute_obj}, callback);
+    this.create = function(name, attribute_array, callback) {
+      TurretIO.POST(this.uri+'/'+name, {attributes: attribute_array}, callback);
     }
 
-    this.update = function(name, attribute_obj, callback) {
-      TurretIO.POST(this.uri+'/'+name, {attributes: attribute_obj}, callback);
+    this.update = function(name, attribute_array, callback) {
+      TurretIO.POST(this.uri+'/'+name, {attributes: attribute_array}, callback);
     }
 
   }
