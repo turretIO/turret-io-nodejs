@@ -28,7 +28,7 @@ var TurretIO = function TurretIO(key, secret) {
 
   this.key = key;
   this.secret = secret;
-  this.domain = 'dev-api.turret.io'
+  this.domain = 'api.turret.io'
 
   this.version = '0.2';
 
